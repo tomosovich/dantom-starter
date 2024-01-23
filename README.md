@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DanTom Starter Kit
+
+
+
+**_The goal of this starter is to let me skip the boilerplate
+of many of the options I use in my projects. It is not meant
+to be a complete solution for any project._**
 
 ## Getting Started
+1. Clone this repo
+2. Run `pnpm install`
+3. Run `cp .env.example .env.local` to create a local environment file
+4. Run `npx prisma db push` to push your models to the database
+5. Run `pnpm run dev` to start the development server
+6. Run `npx prisma studio` to start the Prisma Studio
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- [Create Next App](https://nextjs.org/docs/getting-started)
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/react.html)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configured Tools:
+- [ESLint](https://eslint.org/docs/user-guide/getting-started) (mostly default from Next)
+- [Prettier](https://prettier.io/docs/en/index.html) (including [sort-imports](https://github.com/IanVS/prettier-plugin-sort-imports))
+- [Prisma ORM](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch-typescript-postgres)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [NextAuth.js](https://next-auth.js.org/getting-started/example)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Authentication
+- Generic forms for login, signup, forgot password, etc.
+- Form Validation through zod
+- NextAuth.js with email credentials provider
+- NextAuth.js with Google OAuth provider
 
-## Learn More
+## Some Choices I've made that you may do differently:
+- I'm using named exports for everything except page and layouts, which require default exports.
+- Components are organized by type and not feature. This is because I find it easier to find a component by type than by feature when working on smaller projects. I would refactor this for larger projects with multiple pages and features. I usually use a folder for each component or group and export from an index file.
+- This starter includes support for a generic Postgres database. You can swap in any other database or use [Supabase](https://supabase.io/docs/guides/database) or [PlanetScale](https://planetscale.com) instead.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Todo
+- [ ] Add other OAuth providers to NextAuth.js
+- [ ] Add Toasts for the different login options and errors
+- [ ] Add light and dark mode support
+- [ ] Enhanced password validation (strength, etc.)
